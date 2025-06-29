@@ -30,7 +30,11 @@
       "Bash(claude models)",
       "Bash(gemini:*)",
       "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:ai.google.dev)"
+      "WebFetch(domain:ai.google.dev)",
+      "Bash(find:*)",
+      "Bash(git fetch:*)",
+      "Bash(npm view:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }

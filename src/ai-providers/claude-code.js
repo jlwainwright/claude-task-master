@@ -188,15 +188,10 @@ export class ClaudeCodeProvider extends BaseAIProvider {
 			);
 
 			const prompt = this.formatMessages(params.messages);
-			const args = ['--model', params.modelId, '--no-conversation-history'];
+			const args = ['--model', params.modelId];
 
-			if (params.maxTokens) {
-				args.push('--max-tokens', params.maxTokens.toString());
-			}
-
-			if (params.temperature !== undefined) {
-				args.push('--temperature', params.temperature.toString());
-			}
+			// Note: Some Claude Code CLI versions don't support these flags
+			// Keep the basic implementation for now
 
 			const result = await this.executeCli(args, prompt);
 

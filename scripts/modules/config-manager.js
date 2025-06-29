@@ -480,8 +480,9 @@ function getParametersForRole(role, explicitRoot = null) {
  */
 function isApiKeySet(providerName, session = null, projectRoot = null) {
 	// Define the expected environment variable name for each provider
-	if (providerName?.toLowerCase() === 'ollama') {
-		return true; // Indicate key status is effectively "OK"
+	const lowerProviderName = providerName?.toLowerCase();
+	if (lowerProviderName === 'ollama' || lowerProviderName === 'claude-code' || lowerProviderName === 'gemini-cli') {
+		return true; // CLI providers and Ollama don't require API keys
 	}
 
 	const keyMap = {
@@ -576,7 +577,9 @@ function getMcpApiKeyStatus(providerName, projectRoot = null) {
 				placeholderValue = 'YOUR_XAI_API_KEY_HERE';
 				break;
 			case 'ollama':
-				return true; // No key needed
+			case 'claude-code':
+			case 'gemini-cli':
+				return true; // No key needed for CLI providers and Ollama
 			case 'mistral':
 				apiKeyToCheck = mcpEnv.MISTRAL_API_KEY;
 				placeholderValue = 'YOUR_MISTRAL_API_KEY_HERE';

@@ -31,6 +31,8 @@ import { log, findProjectRoot, resolveEnvVariable } from './utils.js';
 // Import provider classes
 import {
 	AnthropicAIProvider,
+	ClaudeCodeProvider,
+	GeminiCLIProvider,
 	PerplexityAIProvider,
 	GoogleAIProvider,
 	OpenAIProvider,
@@ -45,6 +47,8 @@ import {
 // Create provider instances
 const PROVIDERS = {
 	anthropic: new AnthropicAIProvider(),
+	'claude-code': new ClaudeCodeProvider(),
+	'gemini-cli': new GeminiCLIProvider(),
 	perplexity: new PerplexityAIProvider(),
 	google: new GoogleAIProvider(),
 	openai: new OpenAIProvider(),
@@ -161,6 +165,11 @@ function _extractErrorMessage(error) {
  * @throws {Error} If a required API key is missing.
  */
 function _resolveApiKey(providerName, session, projectRoot = null) {
+	// CLI-based providers that don't require API keys
+	if (providerName === 'claude-code' || providerName === 'gemini-cli') {
+		return null; // CLI providers don't use API keys
+	}
+
 	const keyMap = {
 		openai: 'OPENAI_API_KEY',
 		anthropic: 'ANTHROPIC_API_KEY',
@@ -384,8 +393,9 @@ async function _unifiedServiceRunner(serviceType, params) {
 				continue;
 			}
 
-			// Check API key if needed
-			if (providerName?.toLowerCase() !== 'ollama') {
+			// Check API key if needed (skip for CLI providers)
+			const lowerProviderName = providerName?.toLowerCase();
+			if (lowerProviderName !== 'ollama' && lowerProviderName !== 'claude-code' && lowerProviderName !== 'gemini-cli') {
 				if (!isApiKeySet(providerName, session, effectiveProjectRoot)) {
 					log(
 						'warn',

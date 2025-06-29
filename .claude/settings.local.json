@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp:*)",
+      "Bash(npm install)",
+      "Bash(npx task-master:*)",
+      "WebFetch(domain:openrouter.ai)",
+      "Bash(mkdir:*)",
+      "Bash(git add:*)",
+      "Bash(chmod:*)",
+      "Bash(./scripts/backup-taskmaster.sh:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm test:*)",
+      "Bash(node:*)",
+      "Bash(npm run format-check:*)",
+      "Bash(npm run format:*)",
+      "Bash(rm:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git remote add:*)",
+      "Bash(git checkout:*)",
+      "Bash(git stash:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(npm run:*)"
+    ],
+    "deny": []
+  }
+}

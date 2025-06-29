@@ -148,6 +148,59 @@
 			"max_tokens": 1048000
 		}
 	],
+	"claude-code": [
+		{
+			"id": "opus",
+			"swe_score": 0.725,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 200000
+		},
+		{
+			"id": "sonnet",
+			"swe_score": 0.727,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 200000
+		}
+	],
+	"gemini-cli": [
+		{
+			"id": "gemini-1.5-pro-latest",
+			"swe_score": 0.638,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 1000000
+		},
+		{
+			"id": "gemini-1.5-flash",
+			"swe_score": 0.5,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 1000000
+		},
+		{
+			"id": "gemini-pro",
+			"swe_score": 0.4,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 32000
+		},
+		{
+			"id": "gemini-1.5-pro",
+			"swe_score": 0.6,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 1000000
+		},
+		{
+			"id": "gemini-2.0-flash-exp",
+			"swe_score": 0.754,
+			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"allowed_roles": ["main", "fallback"],
+			"max_tokens": 1000000
+		}
+	],
 	"perplexity": [
 		{
 			"id": "sonar-pro",

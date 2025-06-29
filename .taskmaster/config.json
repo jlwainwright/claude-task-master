@@ -1,8 +1,8 @@
 {
   "models": {
     "main": {
-      "provider": "claude-code",
-      "modelId": "sonnet",
+      "provider": "gemini-cli",
+      "modelId": "gemini-2.5-pro",
       "maxTokens": 50000,
       "temperature": 0.2
     },

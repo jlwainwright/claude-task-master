@@ -24,7 +24,13 @@
       "Bash(git cherry-pick:*)",
       "Bash(grep:*)",
       "Bash(find:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(claude:*)",
+      "Bash(claude --model-list)",
+      "Bash(claude models)",
+      "Bash(gemini:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:ai.google.dev)"
     ],
     "deny": []
   }

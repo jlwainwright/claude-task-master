@@ -612,6 +612,9 @@ function getMcpApiKeyStatus(providerName, projectRoot = null) {
 function getAvailableModels() {
 	const available = [];
 	for (const [provider, models] of Object.entries(MODEL_MAP)) {
+		if (provider.startsWith('_') || !Array.isArray(models) || models.length === 0) {
+			continue; // Skip metadata entries and empty providers
+		}
 		if (models.length > 0) {
 			models.forEach((modelObj) => {
 				// Basic name generation - can be improved
@@ -743,7 +746,7 @@ function getUserId(explicitRoot = null) {
  * @returns {string[]} An array of provider names.
  */
 function getAllProviders() {
-	return Object.keys(MODEL_MAP || {});
+	return Object.keys(MODEL_MAP || {}).filter(key => !key.startsWith('_'));
 }
 
 function getBaseUrlForRole(role, explicitRoot = null) {

@@ -269,7 +269,17 @@ async function runInteractiveSetup(projectRoot) {
 						name: `${provider} / ${m.id} ${
 							m.cost_per_1m_tokens
 								? chalk.gray(
-										`($${m.cost_per_1m_tokens.input.toFixed(2)} input | $${m.cost_per_1m_tokens.output.toFixed(2)} output)`
+										(() => {
+											const { input, output } = m.cost_per_1m_tokens;
+											if (typeof input === 'string' || typeof output === 'string') {
+												// Handle special cost types
+												if (input === 'subscription') return '(Subscription required)';
+												if (input === 'freemium') return '(Freemium - free tier available)';
+												return `(${input} / ${output})`;
+											}
+											// Handle numeric costs
+											return `($${input.toFixed(2)} input | $${output.toFixed(2)} output)`;
+										})()
 									)
 								: ''
 						}`,

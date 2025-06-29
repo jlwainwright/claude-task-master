@@ -1,4 +1,9 @@
 {
+	"_metadata": {
+		"last_updated": "2025-06-29",
+		"version": "1.2.0",
+		"notes": "Updated with latest Gemini 2.5 series models and corrected cost structure for CLI providers"
+	},
 	"anthropic": [
 		{
 			"id": "claude-sonnet-4-20250514",
@@ -152,84 +157,102 @@
 		{
 			"id": "opus",
 			"swe_score": 0.725,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "subscription", "output": "subscription" },
+			"subscription_required": "Claude Pro ($20/month) or Claude for Work",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 200000,
-			"description": "Most powerful Claude model via CLI - excellent for complex reasoning"
+			"description": "Most powerful Claude model via CLI - requires Claude Pro subscription"
 		},
 		{
 			"id": "sonnet",
 			"swe_score": 0.727,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "subscription", "output": "subscription" },
+			"subscription_required": "Claude Pro ($20/month) or Claude for Work",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 200000,
-			"description": "Balanced Claude model via CLI - great performance and speed"
+			"description": "Balanced Claude model via CLI - requires Claude Pro subscription"
 		}
 	],
 	"gemini-cli": [
 		{
 			"id": "gemini-2.5-pro",
 			"swe_score": 0.68,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 2000000,
-			"description": "Most powerful thinking model with maximum response accuracy"
+			"description": "Most powerful thinking model - free tier available"
 		},
 		{
 			"id": "gemini-2.5-flash",
 			"swe_score": 0.65,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 1000000,
-			"description": "Best model in terms of price-performance"
+			"description": "Best price-performance - free tier available"
 		},
 		{
 			"id": "gemini-2.5-flash-lite-preview-06-17",
 			"swe_score": 0.55,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 1000000,
-			"description": "Optimized for cost efficiency and low latency"
+			"description": "Optimized for efficiency - free tier available"
 		},
 		{
 			"id": "gemini-2.0-flash",
 			"swe_score": 0.754,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 1000000,
-			"description": "High-performance multimodal model"
+			"description": "High-performance multimodal - free tier available"
 		},
 		{
 			"id": "gemini-1.5-pro-latest",
 			"swe_score": 0.638,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 1000000,
-			"description": "Latest version of Gemini 1.5 Pro"
+			"description": "Latest Gemini 1.5 Pro - free tier available"
 		},
 		{
 			"id": "gemini-1.5-flash",
 			"swe_score": 0.5,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 1000000,
-			"description": "Fast and efficient model for general tasks"
+			"description": "Fast and efficient - free tier available"
 		},
 		{
 			"id": "gemini-1.5-pro",
 			"swe_score": 0.6,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 1000000,
-			"description": "High-quality model for complex tasks"
+			"description": "High-quality model - free tier available"
 		},
 		{
 			"id": "gemini-pro",
 			"swe_score": 0.4,
-			"cost_per_1m_tokens": { "input": 0, "output": 0 },
+			"cost_per_1m_tokens": { "input": "freemium", "output": "freemium" },
+			"free_tier": "60 req/min, 1000 req/day with Google account",
+			"paid_tier": "Standard Gemini API pricing after free limits",
 			"allowed_roles": ["main", "fallback"],
 			"max_tokens": 32000,
-			"description": "Legacy Gemini Pro model"
+			"description": "Legacy Gemini Pro - free tier available"
 		}
 	],
 	"perplexity": [

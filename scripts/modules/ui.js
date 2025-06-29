@@ -1949,6 +1949,14 @@ const formatCost = (costObj) => {
 	if (costObj.input === 0 && costObj.output === 0) {
 		return chalk.green('Free');
 	}
+	
+	// Handle special cost types
+	if (typeof costObj.input === 'string' || typeof costObj.output === 'string') {
+		if (costObj.input === 'subscription') return chalk.yellow('Subscription');
+		if (costObj.input === 'freemium') return chalk.green('Freemium');
+		return `${costObj.input} / ${costObj.output}`;
+	}
+	
 	const formatSingleCost = (costValue) => {
 		if (costValue === null || costValue === undefined) return 'N/A';
 		const isInteger = Number.isInteger(costValue);
